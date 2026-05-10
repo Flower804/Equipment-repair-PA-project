@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 import database.SQLconnect;
@@ -62,8 +63,31 @@ public class LoginFrame extends JFrame{
   
     //TODO: register Listeners
     buttonlog.addActionListener(new ActionListener(){
-      //TODO: finish this
+      public void actionPerformed(ActionEvent e){
+        String username = temail.getText();
+        String password = tpassword.getText();
+        
+        //for debugging purpusses 
+        //System.out.println("button clicked: \n gotten_username: " + username + "\n gotten_password: " + password);
+
+        if((username.isEmpty()) || (password.isEmpty())){
+          //TODO: create warning menu/popup
+          System.out.println("username or password empty");
+        } else {
+          //TODO: do verification
+          //if valid
+            //TODO: pass to next menu
+            //System.out.println("accepted");
+          //else
+            //reject user
+        }
+      }
     });
 
+    buttoncancel.addActionListener(new ActionListener(){
+      public void actionPerformed(ActionEvent e){
+        System.exit(0);
+      }
+    });
   }
 }
