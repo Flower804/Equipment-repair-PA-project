@@ -71,15 +71,24 @@ public class LoginFrame extends JFrame{
         //System.out.println("button clicked: \n gotten_username: " + username + "\n gotten_password: " + password);
 
         if((username.isEmpty()) || (password.isEmpty())){
-          //TODO: create warning menu/popup
+          JOptionPane.showMessageDialog(LoginFrame.this,
+                                        "please fill the username and password field",
+                                        "invalid login",
+                                        JOptionPane.ERROR_MESSAGE);
           System.out.println("username or password empty");
         } else {
-          //TODO: do verification
-          //if valid
+          boolean match = db.do_match(username, password);
+          
+          if(match){
+            System.out.println("accepted");
             //TODO: pass to next menu
-            //System.out.println("accepted");
-          //else
-            //reject user
+          } else {
+            System.out.println("rejected");
+            JOptionPane.showMessageDialog(LoginFrame.this,
+                                          "The credentials you have inserted are invalid",
+                                          "invalid login",
+                                          JOptionPane.ERROR_MESSAGE);
+          }
         }
       }
     });

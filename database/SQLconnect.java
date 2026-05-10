@@ -39,7 +39,11 @@ public class SQLconnect {
     }
   }
   
-  private boolean do_match(String username, String password){
+  public boolean do_match(String username, String password){
+    return get_match(username, password);
+  }
+
+  private boolean get_match(String username, String password){
     /**
      *Checks the database for a matching set of given credentials
      *@return boolean
